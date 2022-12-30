@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  cdk-tutorial-app:
+    # container_name: cdk-tutorial-container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    volumes:
+      # ホスト優先
+      - .:/home/node/cdk-tutorial:cached
+    # コンテナ側に仮想端末を置いて実行しているプロセスを用意してあげることによってコンテナを持続させる
+    # environment: 
+    #   - TZ=Asia/Tokyo
